@@ -19,6 +19,13 @@
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="10px"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <WrapPanel Grid.Column="2" Grid.Row="1" x:Name="WPAdd"></WrapPanel>
+
+        <Frame x:Name="FrameTable" Grid.Row="1" Grid.Column="3">
+            
+        </Frame>
+        
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"></RowDefinition>
