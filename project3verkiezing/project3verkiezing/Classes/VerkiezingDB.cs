@@ -39,6 +39,28 @@ namespace project3verkiezing.Classes
             return result;
         }
 
+        public DataTable SelectThema()
+        {
+            DataTable result = new DataTable();
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "SELECT* FROM thema; ";
+                MySqlDataReader reader = command.ExecuteReader();
+                result.Load(reader);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return result;
+        }
+
         #endregion
     }
 }

@@ -26,14 +26,38 @@ namespace project3verkiezing
         public MainWindow()
         {
             InitializeComponent();
-            FillBeheerScherm();
+            
         }
 
 
 
-        private void FillBeheerScherm()
+        private void FillPartijscherm()
         {
-           
+            DataTable Table = _verkiezingDB.SelectPartijen();
+            if (Table != null)
+            {
+                DGShow.ItemsSource = Table.DefaultView;
+            }
+        }
+
+        private void BtnPartij_Click(object sender, RoutedEventArgs e)
+        {
+            FillPartijscherm();
+            DGShow.Visibility = Visibility.Visible;
+        }
+
+        private void FillThemaScherm()
+        {
+            DataTable Table = _verkiezingDB.SelectThema();
+            if (Table != null)
+            {
+                DGShow.ItemsSource = Table.DefaultView;
+            }
+        }
+        private void BtnThema_Click(object sender, RoutedEventArgs e)
+        {   
+            FillThemaScherm();
+            DGShow.Visibility = Visibility.Visible;
         }
     }
 }
