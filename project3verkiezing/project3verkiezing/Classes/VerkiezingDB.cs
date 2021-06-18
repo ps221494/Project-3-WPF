@@ -61,6 +61,56 @@ namespace project3verkiezing.Classes
             return result;
         }
 
+        public bool DeletePartij(string PartijId)
+        {
+            bool succes = false;
+
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "DELETE FROM `partij` WHERE `partij`.`PartijId` = @PartijId;";
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+
+            return succes;
+        }
+        public bool DeleteThema(string ThemaId)
+        {
+            bool succes = false;
+
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "DELETE FROM `thema` WHERE `thema`.`ThemaId` = @ThemaId;";
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+
+            return succes;
+        }
         #endregion
     }
 }
