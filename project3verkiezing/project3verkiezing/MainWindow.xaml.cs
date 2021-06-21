@@ -52,8 +52,37 @@ namespace project3verkiezing
                     break;
 
                 case "3":
-
+                    DataTable TableStandPunt = _verkiezingDB.SelectStandpunt();
+                    if (TableStandPunt != null)
+                    {
+                        DGShow.ItemsSource = TableStandPunt.DefaultView;
+                    }
                     break;
+
+                case "4":
+                    DataTable TableVerkiezingssoort = _verkiezingDB.SelectVerkiezingSoort();
+                    if (TableVerkiezingssoort != null)
+                    {
+                        DGShow.ItemsSource = TableVerkiezingssoort.DefaultView;
+                    }
+                    break;
+
+                case "5":
+                    DataTable TableVerkiezingen = _verkiezingDB.SelectVerkiezing();
+                    if (TableVerkiezingen != null)
+                    {
+                        DGShow.ItemsSource = TableVerkiezingen.DefaultView;
+                    }
+                    break;
+
+                case "6":
+                    DataTable TableVerkiezingPartijen = _verkiezingDB.SelectVerkiezingPartij();
+                    if (TableVerkiezingPartijen != null)
+                    {
+                        DGShow.ItemsSource = TableVerkiezingPartijen.DefaultView;
+                    }
+                    break;
+
             }
           
         }
@@ -63,6 +92,7 @@ namespace project3verkiezing
             Todelete.Text = "1";
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
+            BtnZieStandpunten.Visibility = Visibility.Hidden;
         }
 
         private void BtnThema_Click(object sender, RoutedEventArgs e)
@@ -71,6 +101,39 @@ namespace project3verkiezing
             Todelete.Text = "2";
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
+            BtnZieStandpunten.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnStandpunt_Click(object sender, RoutedEventArgs e)
+        {
+            Todelete.Text = "3";
+            FillDGScherm();
+            DGShow.Visibility = Visibility.Visible;
+            BtnZieStandpunten.Visibility = Visibility.Visible;
+        }
+
+        private void BtnVerkiezingssoort_Click(object sender, RoutedEventArgs e)
+        {
+            Todelete.Text = "4";
+            FillDGScherm();
+            DGShow.Visibility = Visibility.Visible;
+            BtnZieStandpunten.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnVerkiezingen_Click(object sender, RoutedEventArgs e)
+        {
+            Todelete.Text = "5";
+            FillDGScherm();
+            DGShow.Visibility = Visibility.Visible;
+            BtnZieStandpunten.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnVerkiezingsPartijen_Click(object sender, RoutedEventArgs e)
+        {
+            Todelete.Text = "6";
+            FillDGScherm();
+            DGShow.Visibility = Visibility.Visible;
+            BtnZieStandpunten.Visibility = Visibility.Hidden;
         }
 
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)

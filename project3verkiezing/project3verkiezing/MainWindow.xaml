@@ -33,14 +33,15 @@
             <ColumnDefinition Width="10px"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Viewbox Grid.Column="1" Grid.Row="1">
-        <TextBlock>Selecteer om aan te Maken</TextBlock>
+        <TextBlock>Selecteer om in te zien</TextBlock>
         </Viewbox>
 
         <Button Grid.Column="1" Grid.Row="3" Background="Black" Foreground="White" x:Name="BtnPartij" Click="BtnPartij_Click">Partij </Button>
         <Button Grid.Column="1" Grid.Row="5" Background="Black" Foreground="White" x:Name="BtnThema" Click="BtnThema_Click">Thema </Button>
-        <Button Grid.Column="1" Grid.Row="7" Background="Black" Foreground="White" x:Name="BtnStandpunt">Standpunt </Button>
-        <Button Grid.Column="1" Grid.Row="9" Background="Black" Foreground="White" x:Name="BtnVerkiezingssoort">Verkiezingssoort</Button>
-        <Button Grid.Column="1" Grid.Row="11" Background="Black" Foreground="White" x:Name="BtnVerkiezing">Verkiezing</Button>
+        <Button Grid.Column="1" Grid.Row="7" Background="Black" Foreground="White" x:Name="BtnStandpunt" Click="BtnStandpunt_Click">Standpunt </Button>
+        <Button Grid.Column="1" Grid.Row="9" Background="Black" Foreground="White" x:Name="BtnVerkiezingssoort" Click="BtnVerkiezingssoort_Click">Verkiezingssoort</Button>
+        <Button Grid.Column="1" Grid.Row="11" Background="Black" Foreground="White" x:Name="BtnVerkiezingen" Click="BtnVerkiezingen_Click">Verkiezingen</Button>
+        <Button Grid.Column="1" Grid.Row="13" Background="Black" Foreground="White" x:Name="BtnVerkiezingsPartijen" Click="BtnVerkiezingsPartijen_Click">VerkiezingsPartijen</Button>
 
         <DataGrid x:Name="DGShow" Grid.Row="1" Grid.RowSpan="13" Grid.ColumnSpan="2" Grid.Column="3" Visibility="Hidden">
             <DataGrid.Columns>
@@ -62,6 +63,8 @@
            
         </DataGrid>
         <TextBlock x:Name="Todelete" Visibility="Hidden"></TextBlock>
+        
+        <Button Grid.Column="1" Grid.Row="7" Background="Green" x:Name="BtnZieStandpunten" Visibility="Hidden">Standpunten inzien</Button>
         
 
     </Grid>

@@ -52,7 +52,6 @@ namespace project3verkiezing.Classes
             }
             catch (Exception)
             {
-                //Problem with the database
             }
             finally
             {
@@ -61,6 +60,89 @@ namespace project3verkiezing.Classes
             return result;
         }
 
+        public DataTable SelectStandpunt()
+        {
+            DataTable result = new DataTable();
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "SELECT* FROM standpunten; ";
+                MySqlDataReader reader = command.ExecuteReader();
+                result.Load(reader);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return result;
+        }
+
+        public DataTable SelectVerkiezingSoort()
+        {
+            DataTable result = new DataTable();
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "SELECT* FROM verkiezingsoort; ";
+                MySqlDataReader reader = command.ExecuteReader();
+                result.Load(reader);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return result;
+        }
+
+        public DataTable SelectVerkiezing()
+        {
+            DataTable result = new DataTable();
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "SELECT* FROM verkiezing; ";
+                MySqlDataReader reader = command.ExecuteReader();
+                result.Load(reader);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return result;
+        }
+
+        public DataTable SelectVerkiezingPartij()
+        {
+            DataTable result = new DataTable();
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "SELECT* FROM verkiezingspartijen; ";
+                MySqlDataReader reader = command.ExecuteReader();
+                result.Load(reader);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return result;
+        }
         public bool DeletePartij(string PartijId)
         {
             bool succes = false;
