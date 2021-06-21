@@ -56,3 +56,5 @@ C:\school\leerjaar1\projecten3\WPF\Project-3-WPF\project3verkiezing\project3verk
 C:\school\leerjaar1\projecten3\WPF\Project-3-WPF\project3verkiezing\project3verkiezing\obj\Debug\project3verkiezing.csproj.CopyComplete
 C:\school\leerjaar1\projecten3\WPF\Project-3-WPF\project3verkiezing\project3verkiezing\obj\Debug\project3verkiezing.exe
 C:\school\leerjaar1\projecten3\WPF\Project-3-WPF\project3verkiezing\project3verkiezing\obj\Debug\project3verkiezing.pdb
+C:\school\leerjaar1\projecten3\WPF\Project-3-WPF\project3verkiezing\project3verkiezing\obj\Debug\toevoegen.g.cs
+C:\school\leerjaar1\projecten3\WPF\Project-3-WPF\project3verkiezing\project3verkiezing\obj\Debug\toevoegen.baml

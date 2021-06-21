@@ -64,7 +64,6 @@
         </DataGrid>
         <TextBlock x:Name="Todelete" Visibility="Hidden"></TextBlock>
         
-        <Button Grid.Column="1" Grid.Row="7" Background="Green" x:Name="BtnZieStandpunten" Visibility="Hidden">Standpunten inzien</Button>
         
 
     </Grid>

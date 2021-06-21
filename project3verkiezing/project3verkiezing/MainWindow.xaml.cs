@@ -22,9 +22,11 @@ namespace project3verkiezing
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly toevoegen _Toevoegen;
         VerkiezingDB _verkiezingDB = new VerkiezingDB();
-        public MainWindow()
+        public MainWindow(toevoegen toeVoegen)
         {
+            _Toevoegen = toeVoegen;
             InitializeComponent();
             
         }
@@ -89,51 +91,143 @@ namespace project3verkiezing
 
         private void BtnPartij_Click(object sender, RoutedEventArgs e)
         {
-            Todelete.Text = "1";
+            BtnThema.Content = "Thema";
+            BtnStandpunt.Content = "Standpunten";
+            BtnVerkiezingssoort.Content = "Verkiezingssoort";
+            BtnVerkiezingen.Content = "verkiezingen";
+            BtnVerkiezingsPartijen.Content = "VerkiezingsPartijen";
+
+            if (Todelete.Text != "1")
+            {
+                Todelete.Text = "1";
+                BtnPartij.Content = "Partij";
+            }
+            else
+            {
+                Todelete.Text = "A1";
+                BtnPartij.Content = "voeg Partij toe";
+               VoegToe();
+
+            }
+            
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
-            BtnZieStandpunten.Visibility = Visibility.Hidden;
+ 
         }
 
         private void BtnThema_Click(object sender, RoutedEventArgs e)
         {
+            BtnPartij.Content = "Partij";
+            BtnStandpunt.Content = "Standpunten";
+            BtnVerkiezingssoort.Content = "Verkiezingssoort";
+            BtnVerkiezingen.Content = "verkiezingen";
+            BtnVerkiezingsPartijen.Content = "VerkiezingsPartijen";
 
-            Todelete.Text = "2";
+            if (Todelete.Text != "2")
+            {
+                Todelete.Text = "2";
+                BtnThema.Content = "Thema";
+            }
+            else
+            {
+                Todelete.Text = "A2";
+                BtnThema.Content = "voeg Thema toe";
+            }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
-            BtnZieStandpunten.Visibility = Visibility.Hidden;
+
         }
 
         private void BtnStandpunt_Click(object sender, RoutedEventArgs e)
         {
-            Todelete.Text = "3";
+            BtnPartij.Content = "Partij";
+            BtnThema.Content = "Thema";
+            BtnVerkiezingssoort.Content = "Verkiezingssoort";
+            BtnVerkiezingen.Content = "verkiezingen";
+            BtnVerkiezingsPartijen.Content = "VerkiezingsPartijen";
+
+            if (Todelete.Text != "3")
+            {
+                Todelete.Text = "3";
+                BtnStandpunt.Content = "Standpunten";
+            }
+            else
+            {
+                Todelete.Text = "A3";
+                BtnStandpunt.Content = "voeg Standpunt toe";
+            }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
-            BtnZieStandpunten.Visibility = Visibility.Visible;
         }
 
         private void BtnVerkiezingssoort_Click(object sender, RoutedEventArgs e)
         {
-            Todelete.Text = "4";
+            BtnPartij.Content = "Partij";
+            BtnThema.Content = "Thema";
+            BtnStandpunt.Content = "Standpunten";
+            BtnVerkiezingen.Content = "verkiezingen";
+            BtnVerkiezingsPartijen.Content = "VerkiezingsPartijen";
+
+            if (Todelete.Text != "4")
+            {
+                Todelete.Text = "4";
+                BtnVerkiezingssoort.Content = "Verkiezingssoort";
+            }
+            else
+            {
+                Todelete.Text = "A4";
+                BtnVerkiezingssoort.Content = "voeg verkiezingssoort toe";
+            }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
-            BtnZieStandpunten.Visibility = Visibility.Hidden;
+
         }
 
         private void BtnVerkiezingen_Click(object sender, RoutedEventArgs e)
         {
-            Todelete.Text = "5";
+            BtnPartij.Content = "Partij";
+            BtnThema.Content = "Thema";
+            BtnStandpunt.Content = "Standpunten";
+            BtnVerkiezingssoort.Content = "Verkiezingssoort";
+            BtnVerkiezingsPartijen.Content = "VerkiezingsPartijen";
+
+            if (Todelete.Text != "5")
+            {
+                Todelete.Text = "5";
+                BtnVerkiezingen.Content = "verkiezingen";
+            }
+            else
+            {
+                Todelete.Text = "A5";
+                BtnVerkiezingen.Content = "voeg verkiezingen toe";
+            }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
-            BtnZieStandpunten.Visibility = Visibility.Hidden;
+ 
         }
 
         private void BtnVerkiezingsPartijen_Click(object sender, RoutedEventArgs e)
         {
-            Todelete.Text = "6";
+            BtnPartij.Content = "Partij";
+            BtnThema.Content = "Thema";
+            BtnStandpunt.Content = "Standpunten";
+            BtnVerkiezingssoort.Content = "Verkiezingssoort";
+            BtnVerkiezingen.Content = "verkiezingen";
+          
+
+            if (Todelete.Text != "6")
+            {
+                Todelete.Text = "6";
+                BtnVerkiezingsPartijen.Content = "VerkiezingsPartijen";
+            }
+            else
+            {
+                Todelete.Text = "A6";
+                BtnVerkiezingsPartijen.Content = "voeg VerkiezingsPartij toe";
+            }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
-            BtnZieStandpunten.Visibility = Visibility.Hidden;
+
         }
 
         private void BtnVerwijder_Click(object sender, RoutedEventArgs e)
@@ -159,6 +253,24 @@ namespace project3verkiezing
             FillDGScherm();
 
 
+        }
+
+        private void VoegToe()
+        {
+          
+            toevoegen add = new toevoegen();
+
+            switch (Todelete.Text)
+            {
+                case "A1":
+                    _Toevoegen.SetTextBoxValue("A1");
+                    add.Show();
+                    
+                    break;
+            }
+            
+
+            FillDGScherm();
         }
     }
 }
