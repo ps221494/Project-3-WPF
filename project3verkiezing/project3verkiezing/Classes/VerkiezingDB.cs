@@ -70,6 +70,7 @@ namespace project3verkiezing.Classes
                 _connection.Open();
                 MySqlCommand command = _connection.CreateCommand();
                 command.CommandText = "DELETE FROM `partij` WHERE `partij`.`PartijId` = @PartijId;";
+                command.Parameters.AddWithValue("@PartijId", PartijId);
                 int nrOfRowsAffected = command.ExecuteNonQuery();
                 succes = (nrOfRowsAffected != 0);
             }
@@ -95,6 +96,7 @@ namespace project3verkiezing.Classes
                 _connection.Open();
                 MySqlCommand command = _connection.CreateCommand();
                 command.CommandText = "DELETE FROM `thema` WHERE `thema`.`ThemaId` = @ThemaId;";
+                command.Parameters.AddWithValue("@ThemaId", ThemaId);
                 int nrOfRowsAffected = command.ExecuteNonQuery();
                 succes = (nrOfRowsAffected != 0);
             }

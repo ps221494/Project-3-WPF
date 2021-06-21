@@ -61,7 +61,7 @@
             </DataGrid.Columns>
            
         </DataGrid>
-        
+        <TextBlock x:Name="Todelete" Visibility="Hidden"></TextBlock>
         
 
     </Grid>

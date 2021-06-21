@@ -22,7 +22,6 @@ namespace project3verkiezing
     /// </summary>
     public partial class MainWindow : Window
     {
-        int _WhatToDelete = 0;
         VerkiezingDB _verkiezingDB = new VerkiezingDB();
         public MainWindow()
         {
@@ -32,34 +31,45 @@ namespace project3verkiezing
 
 
 
-        private void FillPartijscherm()
+        private void FillDGScherm()
         {
-            DataTable Table = _verkiezingDB.SelectPartijen();
-            if (Table != null)
+            switch (Todelete.Text)
             {
-                DGShow.ItemsSource = Table.DefaultView;
+                case "1":
+                    DataTable TablePartijen = _verkiezingDB.SelectPartijen();
+                    if (TablePartijen != null)
+                    {
+                        DGShow.ItemsSource = TablePartijen.DefaultView;
+                    }
+                    break;
+
+                case "2":
+                    DataTable TableThema = _verkiezingDB.SelectThema();
+                    if (TableThema != null)
+                    {
+                        DGShow.ItemsSource = TableThema.DefaultView;
+                    }
+                    break;
+
+                case "3":
+
+                    break;
             }
+          
         }
 
         private void BtnPartij_Click(object sender, RoutedEventArgs e)
         {
-            _WhatToDelete = 1;
-            FillPartijscherm();
+            Todelete.Text = "1";
+            FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
         }
 
-        private void FillThemaScherm()
-        {
-            DataTable Table = _verkiezingDB.SelectThema();
-            if (Table != null)
-            {
-                DGShow.ItemsSource = Table.DefaultView;
-            }
-        }
         private void BtnThema_Click(object sender, RoutedEventArgs e)
         {
-            _WhatToDelete = 2;
-            FillThemaScherm();
+
+            Todelete.Text = "2";
+            FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
         }
 
@@ -67,8 +77,7 @@ namespace project3verkiezing
         {
             DataRowView selectedrow = DGShow.SelectedItem as DataRowView;
 
-            string DeleteSure = Convert.ToString(_WhatToDelete);
-            switch (DeleteSure)
+            switch (Todelete.Text)
             {
                 case "1":
                     if (_verkiezingDB.DeletePartij(selectedrow["PartijId"].ToString()))
@@ -83,9 +92,10 @@ namespace project3verkiezing
                     }
                     break;
             }
-         
 
-           
+            FillDGScherm();
+
+
         }
     }
 }
