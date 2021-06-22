@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="TBtoAdd" Grid.Column="1"  Foreground="White" Background="Black" Visibility="Hidden"></TextBlock>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Foreground="White" Background="Black" TextAlignment="Center">Voeg toe</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Foreground="White" Background="Black" TextAlignment="Center" x:Name="TBBanner">Voeg toe</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" x:Name="TBX1"></TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" x:Name="TBX2"></TextBlock>
         <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" x:Name="TBX3"></TextBlock>
@@ -43,5 +43,6 @@
         <TextBox Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" x:Name="TXT5"></TextBox>
         <TextBox Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" x:Name="TXT6"></TextBox>
 
+        <Button Grid.Column="2" Grid.Row="8" Background="Green" Click="Create_Click">Toevoegen</Button>
     </Grid>
 </Window>

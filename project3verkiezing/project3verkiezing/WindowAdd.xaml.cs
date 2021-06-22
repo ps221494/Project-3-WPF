@@ -35,6 +35,34 @@ namespace project3verkiezing
             
             string value2 = value;
             TBtoAdd.Text = value2;
+
+            switch (TBtoAdd.Text)
+            {
+                case "a1":
+                    TBBanner.Text = "Voeg partij toe";
+                    TBX1.Text = "Partij Naam";
+                    TBX2.Text = "Adres";
+                    TBX3.Text = "Postcode";
+                    TBX4.Text = "Gemeente";
+                    TBX5.Text = "Email adres";
+                    TBX6.Text = "telefoonnummer";
+                    break;
+            }
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            VerkiezingDB _verkiezingDB = new VerkiezingDB();
+            if (_verkiezingDB.VoegPartij(TXT1.Text, TXT2.Text, TXT3.Text, TXT4.Text, TXT5.Text, TXT6.Text))
+            {
+                MessageBox.Show($"Student aangemaakt");
+                _verkiezingDB.SelectPartijen();
+            }
+            else
+            {
+                MessageBox.Show($"Aanmaken mislukt");
+            }
+            this.Close();
         }
 
 

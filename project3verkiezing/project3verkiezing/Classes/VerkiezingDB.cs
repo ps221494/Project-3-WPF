@@ -196,7 +196,33 @@ namespace project3verkiezing.Classes
             return succes;
         }
 
-    
+        public bool VoegPartij(string PartijName, string Adres, string Postcode, string Gemeente ,string EmailAdres, string Telefoonnummer)
+        {
+            bool succes = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "INSERT INTO `partij` (`PartijId`, `PartijName`, `Adres`, `Postcode`, `Gemeente` , `EmailAdres`, `Telefoonnummer`) VALUES (NULL, @PartijName, @Adres, @Postcode, @Gemeente, @EmailAdres, @Telefoonnummer) ";
+                command.Parameters.AddWithValue("@PartijName", PartijName);
+                command.Parameters.AddWithValue("@Adres", Adres);
+                command.Parameters.AddWithValue("@Postcode", Postcode);
+                command.Parameters.AddWithValue("@Gemeente", Gemeente);
+                command.Parameters.AddWithValue("@EmailAdres", EmailAdres);
+                command.Parameters.AddWithValue("@Telefoonnummer", Telefoonnummer);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return succes;
+        }
         #endregion
     }
 }
