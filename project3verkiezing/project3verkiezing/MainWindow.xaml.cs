@@ -22,11 +22,10 @@ namespace project3verkiezing
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly toevoegen _Toevoegen;
         VerkiezingDB _verkiezingDB = new VerkiezingDB();
-        public MainWindow(toevoegen toeVoegen)
+        public MainWindow()
         {
-            _Toevoegen = toeVoegen;
+
             InitializeComponent();
             
         }
@@ -100,13 +99,14 @@ namespace project3verkiezing
             if (Todelete.Text != "1")
             {
                 Todelete.Text = "1";
-                BtnPartij.Content = "Partij";
+                BtnPartij.Content = "voeg Partij toe";
+              
             }
             else
             {
-                Todelete.Text = "A1";
-                BtnPartij.Content = "voeg Partij toe";
-               VoegToe();
+                Todelete.Text = "a1";
+                BtnPartij.Content = "Partij";
+                VoegToe();
 
             }
             
@@ -130,7 +130,7 @@ namespace project3verkiezing
             }
             else
             {
-                Todelete.Text = "A2";
+                Todelete.Text = "a2";
                 BtnThema.Content = "voeg Thema toe";
             }
             FillDGScherm();
@@ -153,7 +153,7 @@ namespace project3verkiezing
             }
             else
             {
-                Todelete.Text = "A3";
+                Todelete.Text = "a3";
                 BtnStandpunt.Content = "voeg Standpunt toe";
             }
             FillDGScherm();
@@ -175,7 +175,7 @@ namespace project3verkiezing
             }
             else
             {
-                Todelete.Text = "A4";
+                Todelete.Text = "a4";
                 BtnVerkiezingssoort.Content = "voeg verkiezingssoort toe";
             }
             FillDGScherm();
@@ -198,7 +198,7 @@ namespace project3verkiezing
             }
             else
             {
-                Todelete.Text = "A5";
+                Todelete.Text = "a5";
                 BtnVerkiezingen.Content = "voeg verkiezingen toe";
             }
             FillDGScherm();
@@ -222,7 +222,7 @@ namespace project3verkiezing
             }
             else
             {
-                Todelete.Text = "A6";
+                Todelete.Text = "a6";
                 BtnVerkiezingsPartijen.Content = "voeg VerkiezingsPartij toe";
             }
             FillDGScherm();
@@ -257,14 +257,14 @@ namespace project3verkiezing
 
         private void VoegToe()
         {
-          
-            toevoegen add = new toevoegen();
-
-            switch (Todelete.Text)
+            string value = Todelete.Text;
+            WindowAdd windowadd = new WindowAdd(value);
+           
+            switch (value)
             {
-                case "A1":
-                    _Toevoegen.SetTextBoxValue("A1");
-                    add.Show();
+                case "a1":
+                    
+                    windowadd.Show();
                     
                     break;
             }

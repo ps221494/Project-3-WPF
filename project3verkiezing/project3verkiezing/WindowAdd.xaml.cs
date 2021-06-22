@@ -1,4 +1,5 @@
 ﻿using project3verkiezing.Classes;
+using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +17,26 @@ using System.Windows.Shapes;
 namespace project3verkiezing
 {
     /// <summary>
-    /// Interaction logic for toevoegen.xaml
+    /// Interaction logic for WindowAdd.xaml
     /// </summary>
-    public partial class toevoegen : Window
+    public partial class WindowAdd : Window
     {
-     
-        public toevoegen()
+        string value;
+        public WindowAdd(string _value)
         {
             InitializeComponent();
+            value = _value;
+            Windows2_Load();
         }
 
-        public void SetTextBoxValue(string value)
+        private void Windows2_Load()
         {
-            TBtoAdd.Text = value;
+            //use the value here:
+            
+            string value2 = value;
+            TBtoAdd.Text = value2;
         }
+
+
     }
 }

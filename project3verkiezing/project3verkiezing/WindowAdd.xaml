@@ -1,11 +1,11 @@
-﻿<Window x:Class="project3verkiezing.toevoegen"
+﻿<Window x:Class="project3verkiezing.WindowAdd"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:project3verkiezing"
         mc:Ignorable="d"
-        Title="toevoegen" Height="450" Width="800">
+        Title="WindowAdd" Height="450" Width="800">
     <Grid Background="Gray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10px"/>
@@ -26,7 +26,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="10px"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="TBtoAdd" Grid.Column="1"></TextBlock>
+        <TextBlock x:Name="TBtoAdd" Grid.Column="1"  Foreground="White" Background="Black" Visibility="Hidden"></TextBlock>
 
         <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Foreground="White" Background="Black" TextAlignment="Center">Voeg toe</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" x:Name="TBX1"></TextBlock>
