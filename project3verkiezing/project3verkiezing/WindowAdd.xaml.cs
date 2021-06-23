@@ -55,8 +55,12 @@ namespace project3verkiezing
             VerkiezingDB _verkiezingDB = new VerkiezingDB();
             if (_verkiezingDB.VoegPartij(TXT1.Text, TXT2.Text, TXT3.Text, TXT4.Text, TXT5.Text, TXT6.Text))
             {
-                MessageBox.Show($"Student aangemaakt");
+                MessageBox.Show($"Partij aangemaakt");
                 _verkiezingDB.SelectPartijen();
+            }
+            else if (_verkiezingDB.VoegThema(TXT1.Text ))
+            {
+                MessageBox.Show($"Thema aangemaakt");
             }
             else
             {
