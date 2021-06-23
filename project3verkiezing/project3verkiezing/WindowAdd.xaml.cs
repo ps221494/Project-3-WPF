@@ -48,35 +48,78 @@ namespace project3verkiezing
                     TBX6.Text = "telefoonnummer";
                     break;
                 case "a2":
-                    TBBanner.Text = "Voeg Thema toe";
+                    TBBanner.Text = "Voeg thema toe";
                     TBX1.Text = "Wat is het thema ";
                     TXT2.Visibility = Visibility.Hidden;
                     TXT3.Visibility = Visibility.Hidden;
                     TXT4.Visibility = Visibility.Hidden;
                     TXT5.Visibility = Visibility.Hidden;
                     TXT6.Visibility = Visibility.Hidden;
-
                     break;
+                case "a3":
+                    TBBanner.Text = "Voeg standpunt toe";
+                    TBX1.Text = "PartijId";
+                    TBX2.Text ="Partij naam";
+                    TBX3.Text = "ThemaId";
+                    TBX4.Text = "Thema";
+                    TBX5.Text = "Standpunt";
+                    TXT6.Visibility = Visibility.Hidden;
+                    break;
+
             }
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
             VerkiezingDB _verkiezingDB = new VerkiezingDB();
-            if (_verkiezingDB.VoegPartij(TXT1.Text, TXT2.Text, TXT3.Text, TXT4.Text, TXT5.Text, TXT6.Text))
+
+            switch (TBtoAdd.Text)
             {
-                MessageBox.Show($"Partij aangemaakt");
-                _verkiezingDB.SelectPartijen();
+                case "a1":
+                    if (_verkiezingDB.VoegPartij(TXT1.Text, TXT2.Text, TXT3.Text, TXT4.Text, TXT5.Text, TXT6.Text))
+                    {
+                        MessageBox.Show($"Partij aangemaakt");
+                        _verkiezingDB.SelectPartijen();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Aanmaken mislukt");
+                    }
+                    this.Close();
+                    break;
+                case "a2":
+                    if (_verkiezingDB.VoegThema(TXT1.Text))
+                    {
+                        MessageBox.Show($"Thema aangemaakt");
+                        _verkiezingDB.SelectThema();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Aanmaken mislukt");
+                    }
+                    this.Close();
+                    break;
+                case "a3":
+                    if (_verkiezingDB.VoegStandpunt(TXT1.Text, TXT2.Text, TXT3.Text, TXT4.Text, TXT5.Text))
+                    {
+                        MessageBox.Show($"Standpunt aangemaakt");
+                        _verkiezingDB.SelectStandpunt();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Aanmaken mislukt");
+                    }
+                    this.Close();
+                    break;
+
+
+
             }
-            else if (_verkiezingDB.VoegThema(TXT1.Text ))
-            {
-                MessageBox.Show($"Thema aangemaakt");
-            }
-            else
-            {
-                MessageBox.Show($"Aanmaken mislukt");
-            }
-            this.Close();
+
+
+
+
+
         }
 
 

@@ -230,8 +230,35 @@ namespace project3verkiezing.Classes
             {
                 _connection.Open();
                 MySqlCommand command = _connection.CreateCommand();
-                command.CommandText = "INSERT INTO `thema` (`ThemaId`, `PartijName`) VALUES (NULL, @Thema) ";
+                command.CommandText = "INSERT INTO `thema` (`ThemaId`, `Thema`) VALUES (NULL, @Thema) ";
                 command.Parameters.AddWithValue("@Thema", Thema);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return succes;
+        }
+
+        public bool VoegStandpunt(string PartijId, string PartijName, string ThemaId, string Thema, string Standpunt)
+        {
+            bool succes = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "INSERT INTO `standpunt` (`StandpuntId`, `PartijId`, `PartijName`, `ThemaId`, `Thema`, `Standpunt`) VALUES (NULL, @PartijId, @PartijName, @ThemaId, @Thema, @Standpunt) ";
+                command.Parameters.AddWithValue("@PartijId", PartijId);
+                command.Parameters.AddWithValue("@PartijName", PartijName);
+                command.Parameters.AddWithValue("@ThemaId", ThemaId);
+                command.Parameters.AddWithValue("@Thema", Thema);
+                command.Parameters.AddWithValue("@Standpunt", Standpunt);
                 int nrOfRowsAffected = command.ExecuteNonQuery();
                 succes = (nrOfRowsAffected != 0);
             }

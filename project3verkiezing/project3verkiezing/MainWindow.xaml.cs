@@ -157,6 +157,7 @@ namespace project3verkiezing
             {
                 Todelete.Text = "a3";
                 BtnStandpunt.Content = "voeg Standpunt toe";
+                VoegToe();
             }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
@@ -265,12 +266,16 @@ namespace project3verkiezing
             switch (value)
             {
                 case "a1":
-                    
                     windowadd.Show();
                     
                     break;
                 case "a2":
                     value = "a2";
+                    windowadd.Show();
+
+                    break;
+                case "a3":
+                    value = "a3";
                     windowadd.Show();
 
                     break;
