@@ -47,6 +47,16 @@ namespace project3verkiezing
                     TBX5.Text = "Email adres";
                     TBX6.Text = "telefoonnummer";
                     break;
+                case "a2":
+                    TBBanner.Text = "Voeg Thema toe";
+                    TBX1.Text = "Wat is het thema ";
+                    TXT2.Visibility = Visibility.Hidden;
+                    TXT3.Visibility = Visibility.Hidden;
+                    TXT4.Visibility = Visibility.Hidden;
+                    TXT5.Visibility = Visibility.Hidden;
+                    TXT6.Visibility = Visibility.Hidden;
+
+                    break;
             }
         }
 

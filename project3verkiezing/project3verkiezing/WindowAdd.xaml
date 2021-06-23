@@ -26,7 +26,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="10px"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="TBtoAdd" Grid.Column="1"  Foreground="White" Background="Black" Visibility="Hidden"></TextBlock>
+        <TextBlock x:Name="TBtoAdd" Grid.Column="1"  Foreground="White" Background="Black" ></TextBlock>
 
         <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Foreground="White" Background="Black" TextAlignment="Center" x:Name="TBBanner">Voeg toe</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" x:Name="TBX1"></TextBlock>

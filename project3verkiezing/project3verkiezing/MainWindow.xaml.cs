@@ -126,12 +126,14 @@ namespace project3verkiezing
             if (Todelete.Text != "2")
             {
                 Todelete.Text = "2";
-                BtnThema.Content = "Thema";
+                BtnThema.Content = "voeg Thema toe";
+             
             }
             else
             {
                 Todelete.Text = "a2";
-                BtnThema.Content = "voeg Thema toe";
+                BtnThema.Content = "Thema";
+                VoegToe();
             }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
@@ -266,6 +268,11 @@ namespace project3verkiezing
                     
                     windowadd.Show();
                     
+                    break;
+                case "a2":
+                    value = "a2";
+                    windowadd.Show();
+
                     break;
             }
             
