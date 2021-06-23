@@ -180,6 +180,7 @@ namespace project3verkiezing
             {
                 Todelete.Text = "a4";
                 BtnVerkiezingssoort.Content = "voeg verkiezingssoort toe";
+                VoegToe();
             }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
@@ -203,6 +204,7 @@ namespace project3verkiezing
             {
                 Todelete.Text = "a5";
                 BtnVerkiezingen.Content = "voeg verkiezingen toe";
+                VoegToe();
             }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
@@ -226,7 +228,8 @@ namespace project3verkiezing
             else
             {
                 Todelete.Text = "a6";
-                BtnVerkiezingsPartijen.Content = "voeg VerkiezingsPartij toe";
+                BtnVerkiezingsPartijen.Content = "voeg Verkiezingspartij toe";
+                VoegToe();
             }
             FillDGScherm();
             DGShow.Visibility = Visibility.Visible;
@@ -247,6 +250,30 @@ namespace project3verkiezing
                     break;
                 case "2":
                     if (_verkiezingDB.DeleteThema(selectedrow["ThemaId"].ToString()))
+                    {
+                        MessageBox.Show("verwijderd");
+                    }
+                    break;
+                case "3":
+                    if (_verkiezingDB.DeleteStandpunt(selectedrow["StandpuntId"].ToString()))
+                    {
+                        MessageBox.Show("verwijderd");
+                    }
+                    break;
+                case "4":
+                    if (_verkiezingDB.DeleteVerkiezingsoort(selectedrow["SoortId"].ToString()))
+                    {
+                        MessageBox.Show("verwijderd");
+                    }
+                    break;
+                case "5":
+                    if (_verkiezingDB.DeleteVerkiezing(selectedrow["VerkiezingId"].ToString()))
+                    {
+                        MessageBox.Show("verwijderd");
+                    }
+                    break;
+                case "6":
+                    if (_verkiezingDB.DeleteVerkiezingpartij(selectedrow["Id"].ToString()))
                     {
                         MessageBox.Show("verwijderd");
                     }
@@ -276,6 +303,21 @@ namespace project3verkiezing
                     break;
                 case "a3":
                     value = "a3";
+                    windowadd.Show();
+
+                    break;
+                case "a4":
+                    value = "a4";
+                    windowadd.Show();
+
+                    break;
+                case "a5":
+                    value = "a5";
+                    windowadd.Show();
+
+                    break;
+                case "a6":
+                    value = "a6";
                     windowadd.Show();
 
                     break;

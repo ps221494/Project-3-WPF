@@ -65,6 +65,34 @@ namespace project3verkiezing
                     TBX5.Text = "Standpunt";
                     TXT6.Visibility = Visibility.Hidden;
                     break;
+                case "a4":
+                    TBBanner.Text = "Voeg verkiezingssoorten toe";
+                    TBX1.Text = "Verkiezingsoort";
+                    TXT2.Visibility = Visibility.Hidden;
+                    TXT3.Visibility = Visibility.Hidden;
+                    TXT4.Visibility = Visibility.Hidden;
+                    TXT5.Visibility = Visibility.Hidden;
+                    TXT6.Visibility = Visibility.Hidden;
+                    break;
+                case "a5":
+                    TBBanner.Text = "Voeg verkiezing toe";
+                    TBX1.Text = "SoortId";
+                    TBX2.Text = "verkiezingsoort";
+                    TBX3.Text = "Datum";
+                    TXT4.Visibility = Visibility.Hidden;
+                    TXT5.Visibility = Visibility.Hidden;
+                    TXT6.Visibility = Visibility.Hidden;
+                    break;
+                case "a6":
+                    TBBanner.Text = "Voeg verkiezingspartij toe";
+                    TBX1.Text = "PartijId";
+                    TBX2.Text = "VerkiezingId";
+                    TXT3.Visibility = Visibility.Hidden;
+                    TXT4.Visibility = Visibility.Hidden;
+                    TXT5.Visibility = Visibility.Hidden;
+                    TXT6.Visibility = Visibility.Hidden;
+                    break;
+
 
             }
         }
@@ -111,7 +139,42 @@ namespace project3verkiezing
                     }
                     this.Close();
                     break;
-
+                case "a4":
+                    if (_verkiezingDB.VoegVerkiezingsoort(TXT1.Text))
+                    {
+                        MessageBox.Show($"Verkiezingsoort aangemaakt");
+                        _verkiezingDB.SelectVerkiezingSoort();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Aanmaken mislukt");
+                    }
+                    this.Close();
+                    break;
+                case "a5":
+                    if (_verkiezingDB.VoegVerkiezing(TXT1.Text, TXT2.Text, TXT3.Text))
+                    {
+                        MessageBox.Show($"Verkiezing aangemaakt");
+                        _verkiezingDB.SelectVerkiezing();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Aanmaken mislukt");
+                    }
+                    this.Close();
+                    break;
+                case "a6":
+                    if (_verkiezingDB.VoegVerkiezingpartij(TXT1.Text, TXT2.Text))
+                    {
+                        MessageBox.Show($"Verkiezingspartij aangemaakt");
+                        _verkiezingDB.SelectVerkiezing();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Aanmaken mislukt");
+                    }
+                    this.Close();
+                    break;
 
 
             }

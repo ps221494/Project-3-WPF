@@ -195,6 +195,110 @@ namespace project3verkiezing.Classes
 
             return succes;
         }
+        public bool DeleteStandpunt (string StandpuntId)
+        {
+            bool succes = false;
+
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "DELETE FROM `standpunten` WHERE `standpunten`.`StandpuntId` = @StandpuntId;";
+                command.Parameters.AddWithValue("@StandpuntId", StandpuntId);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+
+            return succes;
+        }
+        public bool DeleteVerkiezingsoort(string SoortId)
+        {
+            bool succes = false;
+
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "DELETE FROM `verkiezingsoort` WHERE `verkiezingsoort`.`SoortId` = @SoortId;";
+                command.Parameters.AddWithValue("@SoortId", SoortId);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+
+            return succes;
+        }
+        public bool DeleteVerkiezing(string VerkiezingId)
+        {
+            bool succes = false;
+
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "DELETE FROM `verkiezing` WHERE `verkiezing`.`VerkiezingId` = @VerkiezingId;";
+                command.Parameters.AddWithValue("@VerkiezingId", VerkiezingId);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+
+            return succes;
+        }
+        public bool DeleteVerkiezingpartij(string Id)
+        {
+            bool succes = false;
+
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "DELETE FROM `verkiezingspartijen` WHERE `verkiezingspartijen`.`Id` = @Id;";
+                command.Parameters.AddWithValue("@Id", Id);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+
+
+            return succes;
+        }
 
         public bool VoegPartij(string PartijName, string Adres, string Postcode, string Gemeente ,string EmailAdres, string Telefoonnummer)
         {
@@ -253,10 +357,10 @@ namespace project3verkiezing.Classes
             {
                 _connection.Open();
                 MySqlCommand command = _connection.CreateCommand();
-                command.CommandText = "INSERT INTO `standpunt` (`StandpuntId`, `PartijId`, `PartijName`, `ThemaId`, `Thema`, `Standpunt`) VALUES (NULL, @PartijId, @PartijName, @ThemaId, @Thema, @Standpunt) ";
+                command.CommandText = "INSERT INTO `standpunten` (`StandpuntId`, `PartijId`, `PartijName`, `ThemaId`, `Thema`, `Standpunt`) VALUES (NULL, @PartijId, @PartijName, @ThemaId, @Thema, @Standpunt) ";
                 command.Parameters.AddWithValue("@PartijId", PartijId);
-                command.Parameters.AddWithValue("@PartijName", PartijName);
                 command.Parameters.AddWithValue("@ThemaId", ThemaId);
+                command.Parameters.AddWithValue("@PartijName", PartijName);
                 command.Parameters.AddWithValue("@Thema", Thema);
                 command.Parameters.AddWithValue("@Standpunt", Standpunt);
                 int nrOfRowsAffected = command.ExecuteNonQuery();
@@ -272,6 +376,79 @@ namespace project3verkiezing.Classes
             }
             return succes;
         }
+
+        public bool VoegVerkiezingsoort(string Verkiezingsoort)
+        {
+            bool succes = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "INSERT INTO `verkiezingsoort` (`SoortId`, `Verkiezingsoort`) VALUES (NULL, @Verkiezingsoort) ";
+                command.Parameters.AddWithValue("@Verkiezingsoort", Verkiezingsoort);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return succes;
+        }
+
+        public bool VoegVerkiezing(string Soort, string Verkiezingsoort, string Datum)
+        {
+            bool succes = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "INSERT INTO `verkiezing` (`VerkiezingId`, `SoortId`, `Verkiezingsoort`, `Datum`) VALUES (NULL, @Soort, @Verkiezingsoort, @Datum) ";
+                command.Parameters.AddWithValue("@Soort", Soort);
+                command.Parameters.AddWithValue("@Verkiezingsoort", Verkiezingsoort);
+                command.Parameters.AddWithValue("@Datum", Datum);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return succes;
+        }
+        public bool VoegVerkiezingpartij (string PartijId, string VerkiezingId)
+        {
+            bool succes = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText = "INSERT INTO `verkiezingspartijen` (`Id`, `PartijId`, `VerkiezingId`) VALUES (NULL, @PartijId, @VerkiezingId) ";
+                command.Parameters.AddWithValue("@PartijId", PartijId);
+                command.Parameters.AddWithValue("@VerkiezingId", VerkiezingId);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            catch (Exception)
+            {
+                //Problem with the database
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return succes;
+        }
         #endregion
+    
+
     }
 }
